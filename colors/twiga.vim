@@ -15,14 +15,14 @@ let s:linebg = 233
 
 let s:string = 107
 let s:number = 167
-let s:boolean = 120
+let s:boolean = 119
 
-let s:valiable = 222 " '$' and valiable
-let s:operator = 141 " 'function', 'class', '->', etc.
+let s:valiable = 217 " '$' and valiable
+let s:operator = 140 " 'function', 'class', '->', etc.
 let s:statement = 110 " if, switch, for, etc.
-let s:function = 147 " function name
-let s:type = 220 " public, array, html attributes, etc.
-let s:delimiter = 225 " (, {, [, etc.
+let s:function = 146 " function name
+let s:type = 215 " public, array, html attributes, etc.
+let s:delimiter = 223 " (, {, [, etc.
 
 call X("Normal", s:normal, "none", "none")
 call X("Comment", s:comment, "none", "none")
