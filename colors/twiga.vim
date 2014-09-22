@@ -23,6 +23,13 @@ let s:diffaddfg = 193
 let s:diffaddbg = 22
 let s:diffdelfg = 224
 let s:diffdelbg = 88
+let s:diffchfg = 159
+let s:diffchbg = 32
+let s:difftextfg = 19
+let s:difftextbg = 123
+
+let s:foldedfg = 252
+let s:foldedbg = 240
 
 let s:string = 107
 let s:number = 167
@@ -48,6 +55,10 @@ call X("PmenuSel", s:pmenuselfg, s:pmenuselbg, "none")
 
 call X("DiffAdd", s:diffaddfg, s:diffaddbg, "none")
 call X("DiffDelete", s:diffdelfg, s:diffdelbg, "none")
+call X("DiffChange", s:diffchfg, s:diffchbg, "none")
+call X("DiffText", s:difftextfg, s:difftextbg, "none")
+
+call X("Folded", s:foldedfg, s:foldedbg, "none")
 
 call X("Constant", s:string, "none", "none")
 call X("String", s:string, "none", "none")
