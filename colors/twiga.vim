@@ -42,6 +42,11 @@ let s:function = 146 " function name
 let s:type = 215 " public, array, html attributes, etc.
 let s:delimiter = 223 " (, {, [, etc.
 
+let s:errorfg = 253
+let s:errorbg = 124
+let s:todofg = 234
+let s:todobg = 184
+
 call X("Normal", s:normal, "none", "none")
 call X("Comment", s:comment, "none", "none")
 call X("Nontext", s:listfg, s:listbg, "none")
@@ -96,3 +101,5 @@ call X("Delimiter", s:delimiter, "none", "none")
 call X("SpecialComment", s:string, "none", "none")
 call X("Debug", s:string, "none", "none")
 
+call X("Error", s:errorfg, s:errorbg, "none")
+call X("Todo", s:todofg, s:todobg, "none")
