@@ -35,7 +35,7 @@ let s:string = 107
 let s:number = 167
 let s:boolean = 119
 
-let s:valiable = 217 " '$' and valiable
+let s:valiable = 181 " '$' and valiable
 let s:operator = 140 " 'function', 'class', '->', etc.
 let s:statement = 110 " if, switch, for, etc.
 let s:function = 146 " function name
