@@ -11,32 +11,32 @@ let s:comment = 243
 let s:listfg = 238
 let s:listbg = 232
 let s:linefg = 242
-let s:linebg = 233
+let s:linebg = 234
 
-let s:search = 160
-let s:pmenufg = 242
-let s:pmenubg = 233
-let s:pmenuselfg = 234
+let s:searchfg = 124
+let s:foldedfg = 252
+let s:foldedbg = 240
+let s:pmenufg = 246
+let s:pmenubg = 234
+let s:pmenuselfg = 232
 let s:pmenuselbg = 250
+let s:matchparenbg = 240
 
 let s:diffaddfg = 193
 let s:diffaddbg = 22
-let s:diffdelfg = 224
+let s:diffdelfg = 223
 let s:diffdelbg = 88
 let s:diffchfg = 159
-let s:diffchbg = 32
+let s:diffchbg = 33
 let s:difftextfg = 19
 let s:difftextbg = 123
-
-let s:foldedfg = 252
-let s:foldedbg = 240
 
 let s:string = 107
 let s:number = 167
 let s:boolean = 119
 
-let s:valiable = 181 " '$' and valiable
-let s:operator = 140 " 'function', 'class', '->', etc.
+let s:valiable = 181 " valiable name
+let s:operator = 140 " 'function', 'class', '$', '->', etc.
 let s:statement = 110 " if, switch, for, etc.
 let s:function = 146 " function name
 let s:type = 215 " public, array, html attributes, etc.
@@ -54,16 +54,16 @@ call X("SpecialKey", s:listfg, s:listbg, "none")
 call X("LineNr", s:linefg, s:linebg, "none")
 call X("VertSplit", s:listfg, "none", "none")
 
-call X("Search", s:search, "none", "underline")
+call X("Search", s:searchfg, "none", "underline")
+call X("Folded", s:foldedfg, s:foldedbg, "none")
 call X("Pmenu", s:pmenufg, s:pmenubg, "none")
 call X("PmenuSel", s:pmenuselfg, s:pmenuselbg, "none")
+call X("MatchParen", "none", s:matchparenbg, "none")
 
 call X("DiffAdd", s:diffaddfg, s:diffaddbg, "none")
 call X("DiffDelete", s:diffdelfg, s:diffdelbg, "none")
 call X("DiffChange", s:diffchfg, s:diffchbg, "none")
 call X("DiffText", s:difftextfg, s:difftextbg, "none")
-
-call X("Folded", s:foldedfg, s:foldedbg, "none")
 
 call X("Constant", s:string, "none", "none")
 call X("String", s:string, "none", "none")
