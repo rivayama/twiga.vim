@@ -10,16 +10,16 @@ let s:normal = 255
 let s:comment = 243
 let s:listfg = 238
 let s:listbg = 232
-let s:linefg = 242
-let s:linebg = 234
+
+" For line, folded, pmenu, and tab
+let s:darkfg = 246
+let s:darkbg = 234
+let s:lightfg = 232
+let s:lightbg = 250
+let s:activefg = 255
+let s:activebg = 130
 
 let s:searchfg = 124
-let s:foldedfg = 252
-let s:foldedbg = 240
-let s:pmenufg = 246
-let s:pmenubg = 234
-let s:pmenuselfg = 232
-let s:pmenuselbg = 250
 let s:matchparenbg = 240
 
 let s:diffaddfg = 193
@@ -51,13 +51,13 @@ call X("Normal", s:normal, "none", "none")
 call X("Comment", s:comment, "none", "none")
 call X("Nontext", s:listfg, s:listbg, "none")
 call X("SpecialKey", s:listfg, s:listbg, "none")
-call X("LineNr", s:linefg, s:linebg, "none")
+call X("LineNr", s:darkfg, s:darkbg, "none")
 call X("VertSplit", s:listfg, "none", "none")
 
 call X("Search", s:searchfg, "none", "underline")
-call X("Folded", s:foldedfg, s:foldedbg, "none")
-call X("Pmenu", s:pmenufg, s:pmenubg, "none")
-call X("PmenuSel", s:pmenuselfg, s:pmenuselbg, "none")
+call X("Folded", s:darkfg, s:darkbg, "none")
+call X("Pmenu", s:darkfg, s:darkbg, "none")
+call X("PmenuSel", s:activefg, s:activebg, "none")
 call X("MatchParen", "none", s:matchparenbg, "none")
 
 call X("DiffAdd", s:diffaddfg, s:diffaddbg, "none")
@@ -103,3 +103,43 @@ call X("Debug", s:string, "none", "none")
 
 call X("Error", s:errorfg, s:errorbg, "none")
 call X("Todo", s:todofg, s:todobg, "none")
+
+function! Tabline()
+  let s = ''
+  for i in range(tabpagenr('$'))
+    let tab = i + 1
+    let winnr = tabpagewinnr(tab)
+    let buflist = tabpagebuflist(tab)
+    let bufnr = buflist[winnr - 1]
+    let bufname = bufname(bufnr)
+    let bufmodified = getbufvar(bufnr, "&mod")
+    let s .= '%' . tab . 'T'
+    let s .= (tab == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
+    let s .= ' ' . tab .':'
+    let s .= (bufname != '' ? '['. fnamemodify(bufname, ':t') . '] ' : '[No Name] ')
+    call X("TabLine", s:darkfg, s:darkbg, "none")
+    call X("TabLineFill", "none", s:darkbg, "none")
+    call X("TabLineSel", s:activefg, s:activebg, "none")
+    if bufmodified
+      let s .= '[+] '
+    endif
+  endfor
+  let s .= '%#TabLineFill#'
+  return s
+endfunction
+set tabline=%!Tabline()
+
+" {{{ PHP
+
+" hi! link phpFunctions Function
+" hi! link phpSuperglobal Identifier
+" hi! link phpQuoteSingle StringDelimiter
+" hi! link phpQuoteDouble StringDelimiter
+" hi! link phpBoolean Constant
+" hi! link phpNull Constant
+" hi! link phpArrayPair Operator
+" hi! link phpOperator Normal
+" hi! link phpRelation Normal
+" hi! link phpVarSelector Identifier
+
+" }}}
