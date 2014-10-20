@@ -14,8 +14,6 @@ let s:listbg = 232
 " For line, folded, pmenu, and tab
 let s:darkfg = 246
 let s:darkbg = 234
-let s:lightfg = 232
-let s:lightbg = 250
 let s:activefg = 255
 let s:activebg = 130
 
@@ -54,10 +52,12 @@ call X("SpecialKey", s:listfg, s:listbg, "none")
 call X("LineNr", s:darkfg, s:darkbg, "none")
 call X("VertSplit", s:listfg, "none", "none")
 
-call X("Search", s:searchfg, "none", "underline")
 call X("Folded", s:darkfg, s:darkbg, "none")
 call X("Pmenu", s:darkfg, s:darkbg, "none")
 call X("PmenuSel", s:activefg, s:activebg, "none")
+
+
+call X("Search", s:searchfg, "none", "underline")
 call X("MatchParen", "none", s:matchparenbg, "none")
 
 call X("DiffAdd", s:diffaddfg, s:diffaddbg, "none")
@@ -104,30 +104,25 @@ call X("Debug", s:string, "none", "none")
 call X("Error", s:errorfg, s:errorbg, "none")
 call X("Todo", s:todofg, s:todobg, "none")
 
-function! Tabline()
+function! TabLine()
   let s = ''
   for i in range(tabpagenr('$'))
-    let tab = i + 1
-    let winnr = tabpagewinnr(tab)
-    let buflist = tabpagebuflist(tab)
-    let bufnr = buflist[winnr - 1]
-    let bufname = bufname(bufnr)
-    let bufmodified = getbufvar(bufnr, "&mod")
-    let s .= '%' . tab . 'T'
-    let s .= (tab == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
-    let s .= ' ' . tab .':'
-    let s .= (bufname != '' ? '['. fnamemodify(bufname, ':t') . '] ' : '[No Name] ')
-    call X("TabLine", s:darkfg, s:darkbg, "none")
-    call X("TabLineFill", "none", s:darkbg, "none")
-    call X("TabLineSel", s:activefg, s:activebg, "none")
-    if bufmodified
-      let s .= '[+] '
+    if i + 1 == tabpagenr()
+      let s .= '%#TabLineSel#'
+    else
+      let s .= '%#TabLine#'
     endif
+    let s .= ' [' . bufname(i+1) . '] '
   endfor
-  let s .= '%#TabLineFill#'
+  let s .= '%#TabLineFill#%T'
   return s
 endfunction
-set tabline=%!Tabline()
+
+set tabline=%!TabLine()
+
+call X("TabLine", s:darkfg, s:darkbg, "none")
+call X("TabLineFill", "none", s:darkbg, "none")
+call X("TabLineSel", s:activefg, s:activebg, "none")
 
 " {{{ PHP
 
