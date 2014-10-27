@@ -56,7 +56,6 @@ call X("Folded", s:darkfg, s:darkbg, "none")
 call X("Pmenu", s:darkfg, s:darkbg, "none")
 call X("PmenuSel", s:activefg, s:activebg, "none")
 
-
 call X("Search", s:searchfg, "none", "underline")
 call X("MatchParen", "none", s:matchparenbg, "none")
 
@@ -104,24 +103,28 @@ call X("Debug", s:string, "none", "none")
 call X("Error", s:errorfg, s:errorbg, "none")
 call X("Todo", s:todofg, s:todobg, "none")
 
+function! TabLabel(n)
+  let bufnrs = tabpagebuflist(a:n)
+  let mod = len(filter(copy(bufnrs), 'getbufvar(v:val, "&modified")')) ? '(+)' : ''
+  let fname = pathshorten(bufname(bufnrs[tabpagewinnr(a:n) - 1])) 
+  return ' ' . fname . mod . ' '
+endfunction
+
 function! TabLine()
   let s = ''
   for i in range(tabpagenr('$'))
-    if i + 1 == tabpagenr()
-      let s .= '%#TabLineSel#'
-    else
-      let s .= '%#TabLine#'
-    endif
-    let s .= ' [' . bufname(i+1) . '] '
+    let s .= i + 1 == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
+    let s .= TabLabel(i+1)
   endfor
   let s .= '%#TabLineFill#%T'
   return s
 endfunction
 
+" set showtabline=2
 set tabline=%!TabLine()
 
 call X("TabLine", s:darkfg, s:darkbg, "none")
-call X("TabLineFill", "none", s:darkbg, "none")
+call X("TabLineFill", s:darkfg, s:darkbg, "none")
 call X("TabLineSel", s:activefg, s:activebg, "none")
 
 " {{{ PHP
