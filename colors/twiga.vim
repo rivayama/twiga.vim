@@ -58,6 +58,9 @@ call X("Folded", s:darkfg, s:darkbg, "none")
 call X("Pmenu", s:darkfg, s:darkbg, "none")
 call X("PmenuSel", s:activefg, s:activebg, "none")
 
+call X("TabLine", s:lightfg, s:lightbg, "none")
+call X("TabLineFill", "none", s:lightbg, "none")
+call X("TabLineSel", s:activefg, s:activebg, "none")
 
 call X("Search", s:searchfg, "none", "underline")
 call X("MatchParen", "none", s:matchparenbg, "none")
@@ -105,9 +108,5 @@ call X("Debug", s:string, "none", "none")
 
 call X("Error", s:errorfg, s:errorbg, "none")
 call X("Todo", s:todofg, s:todobg, "none")
-
-call X("TabLine", s:lightfg, s:lightbg, "none")
-call X("TabLineFill", "none", s:lightbg, "none")
-call X("TabLineSel", s:activefg, s:activebg, "none")
 
 hi! link phpVarSelector Identifier
