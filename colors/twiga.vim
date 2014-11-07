@@ -14,6 +14,8 @@ let s:listbg = 232
 " For line, folded, pmenu, and tab
 let s:darkfg = 246
 let s:darkbg = 234
+let s:lightfg = 250
+let s:lightbg = 238
 let s:activefg = 255
 let s:activebg = 130
 
@@ -104,37 +106,8 @@ call X("Debug", s:string, "none", "none")
 call X("Error", s:errorfg, s:errorbg, "none")
 call X("Todo", s:todofg, s:todobg, "none")
 
-function! TabLine()
-  let s = ''
-  for i in range(tabpagenr('$'))
-    if i + 1 == tabpagenr()
-      let s .= '%#TabLineSel#'
-    else
-      let s .= '%#TabLine#'
-    endif
-    let s .= ' [' . bufname(i+1) . '] '
-  endfor
-  let s .= '%#TabLineFill#%T'
-  return s
-endfunction
-
-set tabline=%!TabLine()
-
-call X("TabLine", s:darkfg, s:darkbg, "none")
-call X("TabLineFill", "none", s:darkbg, "none")
+call X("TabLine", s:lightfg, s:lightbg, "none")
+call X("TabLineFill", "none", s:lightbg, "none")
 call X("TabLineSel", s:activefg, s:activebg, "none")
 
-" {{{ PHP
-
-" hi! link phpFunctions Function
-" hi! link phpSuperglobal Identifier
-" hi! link phpQuoteSingle StringDelimiter
-" hi! link phpQuoteDouble StringDelimiter
-" hi! link phpBoolean Constant
-" hi! link phpNull Constant
-" hi! link phpArrayPair Operator
-" hi! link phpOperator Normal
-" hi! link phpRelation Normal
-" hi! link phpVarSelector Identifier
-
-" }}}
+hi! link phpVarSelector Identifier
