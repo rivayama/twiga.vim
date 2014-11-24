@@ -8,7 +8,7 @@ A vim color scheme inspired by [jellybeans][] and [landscape][].
 
 ## lightline.vim
 
-This has also colorscheme for [lightline.vim][] If you use this, add the following settings to your `.vimrc`.
+This has also colorscheme for [lightline.vim][]. If you use this, add the following settings to your `.vimrc`.
 
 ```vim
 let g:lightline = {
