@@ -33,7 +33,6 @@ let s:difftextbg = 123
 
 let s:string = 107
 let s:number = 167
-let s:boolean = 119
 
 let s:valiable = 181 " valiable name
 let s:operator = 140 " 'function', 'class', '$', '->', etc.
@@ -74,7 +73,7 @@ call X("Constant", s:string, "none", "none")
 call X("String", s:string, "none", "none")
 call X("Character", s:string, "none", "none")
 call X("Number", s:number, "none", "none")
-call X("Boolean", s:boolean, "none", "none")
+call X("Boolean", s:type, "none", "none")
 call X("Float", s:number, "none", "none")
 
 call X("Identifier", s:valiable, "none", "none")
