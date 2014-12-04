@@ -11,7 +11,7 @@ set background=dark
 highlight clear
 
 function! X(group, fg, bg, attr)
-  exec "hi " . a:group . " ctermfg=" . a:fg . " ctermbg=" . a:bg . " cterm=" . a:attr
+  exec "hi ".a:group." ctermfg=".a:fg." ctermbg=".a:bg." cterm=".a:attr
 endfunction
 
 let s:normal = 255
