@@ -1,10 +1,10 @@
-"   (\-/)       _________     ___       __      ___     ________     ________     
-"  (:O O:)     |\___   ___\  |\  \     |\  \   |\  \   |\   ____\   |\   __  \    
-"   \   /o\    \|___ \  \_|  \ \  \    \ \  \  \ \  \  \ \  \___|   \ \  \|\  \   
-"    | |\o \        \ \  \    \ \  \  __\ \  \  \ \  \  \ \  \  ___  \ \   __  \  
-"    (:) \ o\        \ \  \    \ \  \|\__\_\  \  \ \  \  \ \  \|\  \  \ \  \ \  \ 
-"         \o \--_     \ \__\    \ \____________\  \ \__\  \ \_______\  \ \__\ \__\
-"         ( o O        \|__|     \|____________|   \|__|   \|_______|   \|__|\|__|
+"  (\-/)     _________     ___       __      ___     ________     ________     
+" (:O O:)   |\___   ___\  |\  \     |\  \   |\  \   |\   ____\   |\   __  \    
+"  \   /o\  \|___ \  \_|  \ \  \    \ \  \  \ \  \  \ \  \___|   \ \  \|\  \   
+"   | |\o \      \ \  \    \ \  \  __\ \  \  \ \  \  \ \  \  ___  \ \   __  \  
+"   (:) \ o\      \ \  \    \ \  \|\__\_\  \  \ \  \  \ \  \|\  \  \ \  \ \  \ 
+"        \o \--_   \ \__\    \ \____________\  \ \__\  \ \_______\  \ \__\ \__\
+"        ( o O      \|__|     \|____________|   \|__|   \|_______|   \|__|\|__|
 
 let colors_name = "twiga"
 set background=dark
@@ -117,6 +117,10 @@ call X("Error", s:errorfg, s:errorbg, "none")
 call X("Todo", s:todofg, s:todobg, "none")
 
 hi! link phpVarSelector Identifier
+hi! link htmlItalic Normal
+hi! link htmlBoldItalic htmlBold
+hi! link htmlUnderlineItalic htmlUnderline
+hi! link htmlBoldUnderlineItalic htmlBoldUnderline
 
 " For lightline.vim
 let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
