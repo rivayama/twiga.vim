@@ -1,10 +1,10 @@
-"  (\-/)     _________     ___       __      ___     ________     ________     
-" (:O O:)   |\___   ___\  |\  \     |\  \   |\  \   |\   ____\   |\   __  \    
-"  \   /o\  \|___ \  \_|  \ \  \    \ \  \  \ \  \  \ \  \___|   \ \  \|\  \   
-"   | |\o \      \ \  \    \ \  \  __\ \  \  \ \  \  \ \  \  ___  \ \   __  \  
-"   (:) \ o\      \ \  \    \ \  \|\__\_\  \  \ \  \  \ \  \|\  \  \ \  \ \  \ 
-"        \o \--_   \ \__\    \ \____________\  \ \__\  \ \_______\  \ \__\ \__\
-"        ( o O      \|__|     \|____________|   \|__|   \|_______|   \|__|\|__|
+"  (\-/)     _________    ___       __     ___    ________    ________     
+" (:O O:)   |\___   ___\ |\  \     |\  \  |\  \  |\   ____\  |\   __  \    
+"  \   /o\  \|___ \  \_| \ \  \    \ \  \ \ \  \ \ \  \___|  \ \  \|\  \   
+"   | |\o \      \ \  \   \ \  \  __\ \  \ \ \  \ \ \  \  ___ \ \   __  \  
+"   (:) \ o\      \ \  \   \ \  \|\__\_\  \ \ \  \ \ \  \|\  \ \ \  \ \  \ 
+"        \o \--_   \ \__\   \ \____________\ \ \__\ \ \_______\ \ \__\ \__\
+"        ( o O      \|__|    \|____________|  \|__|  \|_______|  \|__|\|__|
 
 let colors_name = "twiga"
 set background=dark
@@ -49,10 +49,8 @@ let s:function = 146 " function name
 let s:type = 215 " public, array, html attributes, etc.
 let s:delimiter = 223 " (, {, [, etc.
 
-let s:errorfg = 253
-let s:errorbg = 124
-let s:todofg = 234
-let s:todobg = 184
+let s:error = 160
+let s:todo = 184
 
 call X("Normal", s:normal, "none", "none")
 call X("Comment", s:comment, "none", "none")
@@ -113,8 +111,8 @@ call X("Delimiter", s:delimiter, "none", "none")
 call X("SpecialComment", s:string, "none", "none")
 call X("Debug", s:string, "none", "none")
 
-call X("Error", s:errorfg, s:errorbg, "none")
-call X("Todo", s:todofg, s:todobg, "none")
+call X("Error", s:error, s:darkbg, "none")
+call X("Todo", s:todo, s:darkbg, "none")
 
 hi! link phpVarSelector Identifier
 hi! link htmlItalic Normal
