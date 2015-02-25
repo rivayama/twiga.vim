@@ -119,6 +119,7 @@ hi! link htmlItalic Normal
 hi! link htmlBoldItalic htmlBold
 hi! link htmlUnderlineItalic htmlUnderline
 hi! link htmlBoldUnderlineItalic htmlBoldUnderline
+hi! link cssAttrRegion Number
 
 " For lightline.vim
 let s:p = {'normal': {}, 'inactive': {}, 'insert': {}, 'replace': {}, 'visual': {}, 'tabline': {}}
