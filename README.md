@@ -14,6 +14,8 @@ This has also colorscheme for [lightline.vim][]. If you use this, add the follow
 let g:lightline = {
   \ 'colorscheme': 'twiga',
 \ }
+
+call twiga#lightline()
 ```
 
 # LICENSE
